@@ -21,7 +21,7 @@ export default function Home() {
           <thead>
             <tr>
               <th>Valor</th>
-              <th>Data da coleta</th>
+              <th>Data de coleta</th>
             </tr>
           </thead>
           <tbody>
