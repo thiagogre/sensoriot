@@ -16,7 +16,7 @@ export default async function handler(req: any, res: any) {
     const { value } = req.body;
 
     try {
-      const newData = new SensorData({ value });
+      const newData = new SensorData({ value: Number(value) });
       await newData.save();
       res.status(201).json(newData);
     } catch (error) {
