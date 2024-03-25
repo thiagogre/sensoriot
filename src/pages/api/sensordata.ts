@@ -6,7 +6,7 @@ export default async function handler(req: any, res: any) {
 
   if (req.method === "GET") {
     try {
-      const sensorDatas = await SensorData.find({});
+      const sensorDatas = await SensorData.find({}).sort({ createdAt: -1 });
       res.status(200).json(sensorDatas);
     } catch (error) {
       console.error(error);

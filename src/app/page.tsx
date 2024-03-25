@@ -7,11 +7,17 @@ export default function Home() {
   const [sensorData, setSensorData] = useState([]);
 
   useEffect(() => {
-    (async () => {
+    const fetchData = async () => {
       const res = await fetch("/api/sensordata");
       const data = await res.json();
       setSensorData(data);
-    })();
+    };
+
+    fetchData();
+
+    const interval = setInterval(fetchData, 2000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
