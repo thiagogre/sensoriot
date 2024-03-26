@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center">
       <div className="px-4" style={{ width: "90%" }}>
-        <ChartComponent data={sensorData} />
+        <ChartComponent data={sensorData.toReversed()} />
       </div>
       <div className="w-full px-4 mt-4 overflow-x-auto flex justify-center">
         <table>
