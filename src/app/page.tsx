@@ -3,6 +3,8 @@
 import { format } from "date-fns";
 import React, { useState, useEffect } from "react";
 
+import ChartComponent from "@/components/Chart";
+
 export default function Home() {
   const [sensorData, setSensorData] = useState([]);
 
@@ -21,20 +23,23 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="relative flex place-items-center">
+    <main className="flex flex-col items-center justify-center">
+      <div className="px-4" style={{ width: "90%" }}>
+        <ChartComponent data={sensorData} />
+      </div>
+      <div className="w-full px-4 mt-4 overflow-x-auto flex justify-center">
         <table>
           <thead>
             <tr>
-              <th>Valor</th>
-              <th>Data de coleta</th>
+              <th className="py-2 px-4 text-center">Valor</th>
+              <th className="py-2 px-4 text-center">Data de coleta</th>
             </tr>
           </thead>
           <tbody>
             {sensorData.map((data: any) => (
               <tr key={data._id}>
-                <td>{data.value}</td>
-                <td>
+                <td className="py-2 px-4 text-center">{data.value}</td>
+                <td className="py-2 px-4 text-center">
                   {format(new Date(data.createdAt), "dd/MM/yyyy HH:mm:ss")}
                 </td>
               </tr>
